@@ -1,1 +1,2 @@
 /stm32f10x_rust/target
+/stm32f10x_gcc/build
