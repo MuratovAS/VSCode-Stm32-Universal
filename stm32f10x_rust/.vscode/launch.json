@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Rust Cortex Debug",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "cwd": "${workspaceFolder}",
+            "executable": "./target/thumbv7m-none-eabi/release/stm32f10x_rust",
+            "svdFile": ".vscode/STM32F103xx.svd",
+            "configFiles": [
+                "interface/stlink-v2.cfg",
+                "target/stm32f1x.cfg"
+            ],
+            "preLaunchTask": "RUST: cargo build (release)"
+        }
+    ]
+}

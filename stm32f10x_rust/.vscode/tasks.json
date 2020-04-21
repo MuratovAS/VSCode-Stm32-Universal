@@ -1,0 +1,140 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CPU: Build, Download and run",
+            "type": "shell",
+            "command": "/usr/bin/openocd",
+            "args": [
+                "-f",
+                "interface/stlink-v2.cfg",
+                "-f",
+                "target/stm32f1x.cfg",
+                "-c",
+                "program ./target/thumbv7m-none-eabi/release/stm32f10x_rust verify reset exit"
+            ],
+            "problemMatcher": [],
+            "dependsOn": "RUST: cargo build (release)"
+        },
+        /*{
+            "label": "CPU: Download and run",
+            "type": "shell",
+            "command": "/usr/bin/openocd",
+            "args": [
+                "-f",
+                "interface/stlink-v2.cfg",
+                "-f",
+                "target/stm32f1x.cfg",
+                "-c",
+                "program ./target/thumbv7m-none-eabi/release/stm32f10x_rust verify reset exit"
+            ],
+            "problemMatcher": []
+        },*/
+        {
+            "label": "CPU: Reset and run",
+            "type": "shell",
+            "command": "/usr/bin/openocd",
+            "args": [
+                "-f",
+                "interface/stlink-v2.cfg",
+                "-f",
+                "target/stm32f1x.cfg",
+                "-c init",
+                "-c reset",
+                "-c exit"
+            ],
+            "problemMatcher": []
+        },
+        /*{
+            "label": "CPU: Stop",
+            "type": "shell",
+            "command": "/usr/bin/openocd",
+            "args": [
+                "-f",
+                "interface/stlink-v2.cfg",
+                "-f",
+                "target/stm32f1x.cfg",
+                "-c init",
+                "-c halt",
+                "-c exit"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "CPU: Run",
+            "type": "shell",
+            "command": "/usr/bin/openocd",
+            "args": [
+                "-f",
+                "interface/stlink-v2.cfg",
+                "-f",
+                "target/stm32f1x.cfg",
+                "-c init",
+                "-c resume",
+                "-c exit"
+            ],
+            "problemMatcher": []
+        },*/
+        {
+            "label": "CPU: Build to BIN",
+            "type": "shell",
+            "command": "cargo",
+            "args": [
+                "objcopy",
+                "--bin",
+                "stm32f10x_rust",
+                "--target",
+                "thumbv7m-none-eabi",
+                "--release",
+                "stm32f10x_rust.bin"
+            ],
+            "presentation": {
+                "focus": true
+            },
+            "problemMatcher": [
+             	"$rustc"   
+            ],
+        },
+        {
+            "type": "shell",
+            "command": "cargo",
+            "args": [
+                "build",
+                "--release"
+            ],
+            "problemMatcher": [
+             	"$rustc"   
+            ],
+            "group": "build",
+            "label": "RUST: cargo build (release)"
+        },
+        {
+            "type": "cargo",
+            "subcommand": "clean",
+            "problemMatcher": [
+             	"$rustc"   
+            ],
+            "label": "RUST: cargo clean"
+        },
+        {
+            "type": "cargo",
+            "subcommand": "check",
+            "problemMatcher": [
+             	"$rustc"   
+            ],
+            "group": "build",
+            "label": "RUST: cargo check"
+        },
+        {
+            "type": "shell",
+            "command": "cargo",
+            "args": [
+                "fmt"
+            ],
+            "problemMatcher": [
+             	"$rustc"   
+            ],
+            "label": "RUST: Format code"
+        }
+    ]
+}

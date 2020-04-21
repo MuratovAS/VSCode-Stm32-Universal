@@ -1,0 +1,101 @@
+{
+    "ABOUT1": "This file holds combined user and CubeMX generated Makefile workspace dependecies.",
+    "ABOUT2": "User should not edit this fields, instead it should edit 'c_cpp_properties.json'",
+    "ABOUT3": "This file is regenerated on 'Update workspace' task.",
+    "VERSION": "1.7",
+    "LAST_RUN": "2020-04-21 22:34:19.568410",
+    "cSources": [
+        "Core/Src/main.c",
+        "Core/Src/stm32f1xx_it.c",
+        "Core/Src/stm32f1xx_hal_msp.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c",
+        "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c",
+        "Core/Src/system_stm32f1xx.c"
+    ],
+    "asmSources": [],
+    "ldSources": [
+        "-lc",
+        "-lm",
+        "-lnosys"
+    ],
+    "cIncludes": [
+        "Core/Inc",
+        "Drivers/STM32F1xx_HAL_Driver/Inc",
+        "Drivers/STM32F1xx_HAL_Driver/Inc/Legacy",
+        "Drivers/CMSIS/Device/ST/STM32F1xx/Include",
+        "Drivers/CMSIS/Include",
+        "Drivers/CMSIS/Include"
+    ],
+    "asmIncludes": [],
+    "ldIncludes": [],
+    "cDefines": [
+        "USE_HAL_DRIVER",
+        "STM32F103xB"
+    ],
+    "asmDefines": [],
+    "cFlags": [
+        "-mcpu=cortex-m3",
+        "-mthumb",
+        "-DUSE_HAL_DRIVER",
+        "-DSTM32F103xB",
+        "-ICore/Inc",
+        "-IDrivers/STM32F1xx_HAL_Driver/Inc",
+        "-IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy",
+        "-IDrivers/CMSIS/Device/ST/STM32F1xx/Include",
+        "-IDrivers/CMSIS/Include",
+        "-IDrivers/CMSIS/Include",
+        "-Og",
+        "-Wall",
+        "-fdata-sections",
+        "-ffunction-sections",
+        "-g",
+        "-gdwarf-2",
+        "-MMD",
+        "-MP",
+        "-MF"
+    ],
+    "asmFlags": [
+        "-mcpu=cortex-m3",
+        "-mthumb",
+        "-Og",
+        "-Wall",
+        "-fdata-sections",
+        "-ffunction-sections"
+    ],
+    "ldFlags": [
+        "-mcpu=cortex-m3",
+        "-mthumb",
+        "-specs=nano.specs",
+        "-TSTM32F103C8Tx_FLASH.ld",
+        "-lc",
+        "-lm",
+        "-lnosys",
+        "-Wl,-Map=build/stm.map,--cref",
+        "-Wl,--gc-sections"
+    ],
+    "buildDir": "build",
+    "targetExecutablePath": "build/stm.elf",
+    "cubeMxProjectPath": "stm32f10x_gcc.ioc",
+    "openOcdConfig": [
+        ".vscode/stm32f1xx.cfg"
+    ],
+    "stm32SvdPath": ".vscode/STM32F103xx.svd",
+    "ABOUT4": "---- Paths below are fetched from user-specific 'toolsPaths.json'. ----",
+    "gccExePath": "/opt/gcc-arm/bin/arm-none-eabi-gcc",
+    "gccInludePath": "/opt/gcc-arm/lib/gcc/arm-none-eabi/9.2.1/include",
+    "buildToolsPath": "/usr/bin/make",
+    "pythonExec": "python3",
+    "openOcdPath": "/usr/bin/openocd",
+    "openOcdInterfacePath": ".vscode/stlink-v2.cfg"
+}

@@ -1,0 +1,204 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build project",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "type": "shell",
+            "command": "/usr/bin/make",
+            "args": [
+                "GCC_PATH=/opt/gcc-arm/bin",
+                "-j6"
+            ],
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            "presentation": {
+                "focus": true
+            }
+        },
+        {
+            "label": "Compile current file",
+            "type": "shell",
+            "command": "/opt/gcc-arm/bin/arm-none-eabi-gcc",
+            "args": [
+                "-c",
+                "-DUSE_HAL_DRIVER",
+                "-DSTM32F103xB",
+                "-ICore/Inc",
+                "-IDrivers/STM32F1xx_HAL_Driver/Inc",
+                "-IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy",
+                "-IDrivers/CMSIS/Device/ST/STM32F1xx/Include",
+                "-IDrivers/CMSIS/Include",
+                "-IDrivers/CMSIS/Include",
+                "-mcpu=cortex-m3",
+                "-mthumb",
+                "-DUSE_HAL_DRIVER",
+                "-DSTM32F103xB",
+                "-ICore/Inc",
+                "-IDrivers/STM32F1xx_HAL_Driver/Inc",
+                "-IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy",
+                "-IDrivers/CMSIS/Device/ST/STM32F1xx/Include",
+                "-IDrivers/CMSIS/Include",
+                "-IDrivers/CMSIS/Include",
+                "-Og",
+                "-Wall",
+                "-fdata-sections",
+                "-ffunction-sections",
+                "-g",
+                "-gdwarf-2",
+                "-MMD",
+                "-MP",
+                "-MF'build/${fileBasenameNoExtension}.d'",
+                "'${relativeFile}'",
+                "-o",
+                "'build/${fileBasenameNoExtension}.o'"
+            ],
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            },
+            "presentation": {
+                "focus": true
+            }
+        },
+        {
+            "label": "Delete build folder",
+            "type": "shell",
+            "command": "/usr/bin/make",
+            "args": [
+                "clean"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "focus": false
+            }
+        },
+        {
+            "label": "CPU: Build, Download and run",
+            "type": "shell",
+            "command": "/usr/bin/openocd",
+            "args": [
+                "-f",
+                ".vscode/stlink-v2.cfg",
+                "-f",
+                ".vscode/stm32f1xx.cfg",
+                "-c",
+                "program build/stm.elf verify reset exit"
+            ],
+            "problemMatcher": [],
+            "dependsOn": "Build project"
+        },
+        {
+            "label": "CPU: Download and run",
+            "type": "shell",
+            "command": "/usr/bin/openocd",
+            "args": [
+                "-f",
+                ".vscode/stlink-v2.cfg",
+                "-f",
+                ".vscode/stm32f1xx.cfg",
+                "-c",
+                "program build/stm.elf verify reset exit"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "CPU: Reset and run",
+            "type": "shell",
+            "command": "/usr/bin/openocd",
+            "args": [
+                "-f",
+                ".vscode/stlink-v2.cfg",
+                "-f",
+                ".vscode/stm32f1xx.cfg",
+                "-c init",
+                "-c reset",
+                "-c exit"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "CPU: Halt",
+            "type": "shell",
+            "command": "/usr/bin/openocd",
+            "args": [
+                "-f",
+                ".vscode/stlink-v2.cfg",
+                "-f",
+                ".vscode/stm32f1xx.cfg",
+                "-c init",
+                "-c halt",
+                "-c exit"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "CPU: Run",
+            "type": "shell",
+            "command": "/usr/bin/openocd",
+            "args": [
+                "-f",
+                ".vscode/stlink-v2.cfg",
+                "-f",
+                ".vscode/stm32f1xx.cfg",
+                "-c init",
+                "-c resume",
+                "-c exit"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Python file",
+            "type": "shell",
+            "command": "python3",
+            "args": [
+                "${file}"
+            ],
+            "presentation": {
+                "focus": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Open CubeMX project",
+            "type": "shell",
+            "command": "xdg-open",
+            "args": [
+                "stm32f10x_gcc.ioc"
+            ],
+            "presentation": {
+                "focus": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Update workspace",
+            "type": "shell",
+            "command": "python3",
+            "args": [
+                "${workspaceFolder}/ideScripts/update.py"
+            ],
+            "presentation": {
+                "focus": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}
