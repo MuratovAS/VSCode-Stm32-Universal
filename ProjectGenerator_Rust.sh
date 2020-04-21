@@ -24,18 +24,18 @@ read MCU_SVD
 #создать новый проект и иерархию папок
 cargo new $PRJ_N
 
-mkdir $PRJ_N/.vscode/
-mkdir $PRJ_N/.cargo/
+mkdir ./$PRJ_N/.vscode/
+mkdir ./$PRJ_N/.cargo/
 
-cp $MCU_SVD $PRJ_N/.vscode/
+cp ./$MCU_SVD ./$PRJ_N/.vscode/
 
-cd $PRJ_N
+cd ./$PRJ_N/
 
 #установим целевую платформу для компилятора
 rustup target add thumbv7m-none-eabi
 
 #создаем файл конфигураций для обозначили цель компиляции по умолчанию
-cat > .cargo/config << EOF
+cat > ./.cargo/config << EOF
 [target.thumbv7m-none-eabi]
 
 [target.'cfg(all(target_arch = "arm", target_os = "none"))']
@@ -47,7 +47,7 @@ target = "thumbv7m-none-eabi"  # Cortex-M3
 EOF
 
 #файл с указанием разметки памяти нашего контроллера
-cat > memory.x << EOF
+cat > ./memory.x << EOF
 MEMORY
 {
  FLASH : ORIGIN = 0x08000000, LENGTH = 64K
@@ -85,7 +85,7 @@ debug = true # Нормальные символы, не увеличивающ�
 EOF
 
 #создаем файлы для системы сборки
-cat > .vscode/launch.json << EOF
+cat > ./.vscode/launch.json << EOF
 {
     "version": "0.2.0",
     "configurations": [
@@ -95,7 +95,7 @@ cat > .vscode/launch.json << EOF
             "request": "launch",
             "servertype": "openocd",
             "cwd": "\${workspaceFolder}",
-            "executable": "target/thumbv7m-none-eabi/release/$PRJ_N",
+            "executable": "./target/thumbv7m-none-eabi/release/$PRJ_N",
             "svdFile": ".vscode/$MCU_SVD",
             "configFiles": [
                 "$Prog_CFG",
@@ -107,7 +107,7 @@ cat > .vscode/launch.json << EOF
 }
 EOF
 
-cat > .vscode/tasks.json << EOF
+cat > ./.vscode/tasks.json << EOF
 {
     "version": "2.0.0",
     "tasks": [
@@ -121,7 +121,7 @@ cat > .vscode/tasks.json << EOF
                 "-f",
                 "$MCU_CFG",
                 "-c",
-                "program target/thumbv7m-none-eabi/release/$PRJ_N verify reset exit"
+                "program ./target/thumbv7m-none-eabi/release/$PRJ_N verify reset exit"
             ],
             "problemMatcher": [],
             "dependsOn": "RUST: cargo build (release)"
@@ -136,7 +136,7 @@ cat > .vscode/tasks.json << EOF
                 "-f",
                 "$MCU_CFG",
                 "-c",
-                "program target/thumbv7m-none-eabi/release/$PRJ_N verify reset exit"
+                "program ./target/thumbv7m-none-eabi/release/$PRJ_N verify reset exit"
             ],
             "problemMatcher": []
         },*/
@@ -251,7 +251,7 @@ cat > .vscode/tasks.json << EOF
 EOF
 
 #базовый код для проверки проекта, моргание светодиодом
-cat > src/main.rs << EOF
+cat > ./src/main.rs << EOF
 #![deny(unsafe_code)]
 #![no_std]
 #![no_main]

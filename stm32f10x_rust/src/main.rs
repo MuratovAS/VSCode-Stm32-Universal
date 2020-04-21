@@ -27,7 +27,7 @@ fn main() -> ! {
     // Для пинов 0-7, необходимо передавать регистр "crl".
     let mut led = gpioc.pc13.into_push_pull_output(&mut gpioc.crh);
     // Конфигурируем системный таймер на запуск обновления каждую секунду.
-    let mut timer = Timer::syst(cp.SYST, &clocks).start_count_down(10.hz());
+    let mut timer = Timer::syst(cp.SYST, &clocks).start_count_down(1.hz());
 
     // Ждём пока таймер запустит обновление
     // и изменит состояние светодиода.
