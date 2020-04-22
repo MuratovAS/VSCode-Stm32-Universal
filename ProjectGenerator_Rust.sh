@@ -8,6 +8,10 @@ Series_N="f1"
 echo "Series MCU name (example: f1):"
 read Series_N
 
+NameMCU_N="07"
+echo "Model MCU (example: 03):"
+read NameMCU_N
+
 Prog_CFG="interface/stlink-v2.cfg"
 echo "Config File Prog (example: interface/stlink-v2.cfg):"
 read Prog_CFG
@@ -63,13 +67,13 @@ cortex-m = "*"
 cortex-m-rt = "*"
 cortex-m-semihosting = "*"
 panic-halt = "*"
-nb = "0.1.2"
-embedded-hal = "0.2.3"
+nb = "*"
+embedded-hal = "*"
 
 # Пакет для разработки под отладочные платы stm32${Series_N}
 [dependencies.stm32${Series_N}xx-hal]
-version = "0.5.2"
-features = ["stm32${Series_N}00", "rt"]
+version = "*"
+features = ["stm32${Series_N}${NameMCU_N}", "rt"]
 
 # Позволяет использовать "cargo fix"!
 [[bin]]
