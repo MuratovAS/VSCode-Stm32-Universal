@@ -1,0 +1,158 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CPU: Download and run",
+            "type": "shell",
+            "command": "openocd",
+            "args": [
+                "-f",
+                "${workspaceFolder}/openocd/stlink-v2.cfg",
+                "-f",
+                "${workspaceFolder}/openocd/stm32f1xx.cfg",
+                "-c",
+                "program ${command:cmake.launchTargetPath} verify reset exit"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "CPU: Reset and run",
+            "type": "shell",
+            "command": "openocd",
+            "args": [
+                "-f",
+                "${workspaceFolder}/openocd/stlink-v2.cfg",
+                "-f",
+                "${workspaceFolder}/openocd/stm32f1xx.cfg",
+                "-c init",
+                "-c reset",
+                "-c exit"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "CPU: Run",
+            "type": "shell",
+            "command": "openocd",
+            "args": [
+                "-f",
+                "${workspaceFolder}/openocd/stlink-v2.cfg",
+                "-f",
+                "${workspaceFolder}/openocd/stm32f1xx.cfg",
+                "-c init",
+                "-c resume",
+                "-c exit"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "CPU: Stop",
+            "type": "shell",
+            "command": "openocd",
+            "args": [
+                "-f",
+                "${workspaceFolder}/openocd/stlink-v2.cfg",
+                "-f",
+                "${workspaceFolder}/openocd/stm32f1xx.cfg",
+                "-c init",
+                "-c halt",
+                "-c exit"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "ROM: Readelf",
+            "type": "shell",
+            "command": "arm-none-eabi-readelf",
+            "args": [
+                "-S",
+                "${command:cmake.launchTargetPath}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "ROM: Size",
+            "type": "shell",
+            "command": "arm-none-eabi-size",
+            "args": [
+                "${command:cmake.launchTargetPath}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "PRJ: Open CubeMX App",
+            "type": "shell",
+            "command": "~/ST/STM32CubeMX/STM32CubeMX",
+            "args": [
+                "${workspaceFolder}/App/CubeMX.ioc"
+            ],
+            "presentation": {
+                "focus": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "PRJ: Open CubeMX Boot",
+            "type": "process",
+            "command": "~/ST/STM32CubeMX/STM32CubeMX",
+            "args": [
+                "${workspaceFolder}/Boot/CubeMX.ioc"
+            ],
+            "presentation": {
+                "focus": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "PRJ: Open CubeProgrammer",
+            "type": "process",
+            "command": "~/ST/STM32CubeProgrammer/bin/STM32CubeProgrammer",
+            "presentation": {
+                "focus": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "SYS: Mount build to RAM",
+            "type": "shell",
+            "auto": true,
+            "command": "sudo",
+            "args": [
+                "mount",
+                "-t",
+                "tmpfs",
+                "tmpfs",
+                "${workspaceFolder}/build/"
+            ],
+            "presentation": {
+                "focus": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "SYS: UMount build to RAM",
+            "type": "shell",
+            "command": "sudo",
+            "args": [
+                "umount",
+                "${workspaceFolder}/build/"
+            ],
+            "presentation": {
+                "focus": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "CPU: Auto monitoring SWV",
+            "type": "shell",
+            "command": "sh",
+            "args": [
+                "${workspaceFolder}/openocd/AutoSWV.sh"
+            ],
+            "presentation": {
+                "focus": false
+            },
+            "problemMatcher": []
+        }
+    ]
+}

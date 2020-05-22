@@ -3,7 +3,7 @@
     "ABOUT2": "User should not edit this fields, instead it should edit 'c_cpp_properties.json'",
     "ABOUT3": "This file is regenerated on 'Update workspace' task.",
     "VERSION": "1.7",
-    "LAST_RUN": "2020-04-21 22:34:19.568410",
+    "LAST_RUN": "2020-05-22 22:20:03.481000",
     "cSources": [
         "Core/Src/main.c",
         "Core/Src/stm32f1xx_it.c",

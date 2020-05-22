@@ -1,0 +1,39 @@
+{
+	"configurations": [
+		{
+			"name": "Cortex-intelliSense",
+			"intelliSenseMode": "clang-x64",
+			"includePath": [
+				"${workspaceFolder}/App/Core/Inc",
+				"${workspaceFolder}/App/User/Inc",
+				
+				"${workspaceFolder}/App/Lib/SecToMSec/Inc",
+				"${workspaceFolder}/App/Drivers/STM32F1xx_HAL_Driver/Inc",
+				"${workspaceFolder}/App/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy",
+				"${workspaceFolder}/App/Drivers/CMSIS/Include",
+				"${workspaceFolder}/App/Drivers/CMSIS/Device/ST/STM32F1xx/Include",
+
+				"${workspaceFolder}/Boot/Core/Inc",
+				"${workspaceFolder}/Boot/User/Inc",
+				
+				"${workspaceFolder}/Boot/Drivers/STM32F1xx_HAL_Driver/Inc",
+				"${workspaceFolder}/Boot/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy",
+				"${workspaceFolder}/Boot/Drivers/CMSIS/Include",
+				"${workspaceFolder}/Boot/Drivers/CMSIS/Device/ST/STM32F1xx/Include"
+			],
+			"browse": {
+				"path": [
+					"${workspaceFolder}"
+				],
+				"limitSymbolsToIncludedHeaders": true
+			},
+			"defines": [
+				"STM32F103xB",
+				"USE_HAL_DRIVER"
+			],
+			"cStandard": "c11",
+			"cppStandard": "c++17"
+		}
+	],
+	"version": 4
+}

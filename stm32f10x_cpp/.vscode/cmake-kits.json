@@ -1,0 +1,6 @@
+[
+  {
+    "name": "ARM",
+    "toolchainFile": "cmake/CompilerSelectro.cmake"
+  }
+]

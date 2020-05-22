@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cortex debug",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "cwd": "${workspaceFolder}",
+            "executable": "${command:cmake.launchTargetPath}",
+            "svdFile": "${workspaceFolder}/openocd/STM32F103xx.svd",
+            "configFiles": [
+                "${workspaceFolder}/openocd/StLink-swd-swv.cfg"
+            ],
+        }
+    ]
+}
