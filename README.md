@@ -12,6 +12,8 @@ VSCode + STM32Cube + GCC (+ СPP + CMake) (+ Rust)  = IDE
 
 Про дороботку ST-Link2 можно почитать здесь https://habr.com/ru/post/402927/
 
+[TOC]
+
 ------
 
 ## Подготовка рабочего пространства
