@@ -10,7 +10,8 @@
             "executable": "${command:cmake.launchTargetPath}",
             "svdFile": "${workspaceFolder}/openocd/STM32F103xx.svd",
             "configFiles": [
-                "${workspaceFolder}/openocd/StLink-swd-swv.cfg"
+                "${workspaceFolder}/openocd/STLink-SWD.cfg",
+                "${workspaceFolder}/openocd/STLink-SWV.cfg"
             ],
         }
     ]

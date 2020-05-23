@@ -7,9 +7,7 @@
             "command": "openocd",
             "args": [
                 "-f",
-                "${workspaceFolder}/openocd/stlink-v2.cfg",
-                "-f",
-                "${workspaceFolder}/openocd/stm32f1xx.cfg",
+                "${workspaceFolder}/openocd/STLink-SWD.cfg",
                 "-c",
                 "program ${command:cmake.launchTargetPath} verify reset exit"
             ],
@@ -21,9 +19,7 @@
             "command": "openocd",
             "args": [
                 "-f",
-                "${workspaceFolder}/openocd/stlink-v2.cfg",
-                "-f",
-                "${workspaceFolder}/openocd/stm32f1xx.cfg",
+                "${workspaceFolder}/openocd/STLink-SWD.cfg",
                 "-c init",
                 "-c reset",
                 "-c exit"
@@ -36,9 +32,7 @@
             "command": "openocd",
             "args": [
                 "-f",
-                "${workspaceFolder}/openocd/stlink-v2.cfg",
-                "-f",
-                "${workspaceFolder}/openocd/stm32f1xx.cfg",
+                "${workspaceFolder}/openocd/STLink-SWD.cfg",
                 "-c init",
                 "-c resume",
                 "-c exit"
@@ -51,9 +45,7 @@
             "command": "openocd",
             "args": [
                 "-f",
-                "${workspaceFolder}/openocd/stlink-v2.cfg",
-                "-f",
-                "${workspaceFolder}/openocd/stm32f1xx.cfg",
+                "${workspaceFolder}/openocd/STLink-SWD.cfg",
                 "-c init",
                 "-c halt",
                 "-c exit"
@@ -147,7 +139,7 @@
             "type": "shell",
             "command": "sh",
             "args": [
-                "${workspaceFolder}/openocd/AutoSWV.sh"
+                "${workspaceFolder}/openocd/tools/AutoSWV.sh"
             ],
             "presentation": {
                 "focus": false

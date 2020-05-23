@@ -1,7 +1,3 @@
-https://habr.com/en/post/440024/
-
-https://github.com/esynr3z/openocd-stuff/tree/master/tools
-
 # itmdump
 
 ## Description
@@ -34,3 +30,11 @@ Print strings from /dev/ttyUSB0:
 ```
 uartdump -f /dev/ttyUSB0 -b 115200
 ```
+
+# URL
+
+https://habr.com/en/post/440024/
+
+https://github.com/esynr3z/openocd-stuff/tree/master/tools
+
+# 
